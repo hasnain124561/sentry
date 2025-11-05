@@ -289,6 +289,8 @@ class Release(Model):
                 F("revision").desc(),
                 Case(When(prerelease="", then=1), default=0).desc(),
                 F("prerelease").desc(),
+                F("build_number").desc(),
+                F("build_code").desc(),
                 name="sentry_release_semver_idx",
             ),
             models.Index(fields=("organization", "build_code")),
